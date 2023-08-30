@@ -1,0 +1,30 @@
+export component StatePage inherits Window {
+    preferred-width: 100px;
+    preferred-height: 100px;
+    default-font-size: 24px;
+
+    label := Text { }
+    ta := TouchArea {
+        clicked => {
+            active = !active;
+        }
+    }
+    property <bool> active: true;
+
+    // 这种设计目前看来很不友好，有点像 css ，不知道是不是为了翻译 web 而故意这么设计的。
+    states [
+        // when 前的标识符好像只是命名
+        active when active && !ta.has-hover: {
+            label.text: "Active";
+            root.background: blue;
+        }
+        active-hover when active && ta.has-hover: {
+            label.text: "Active\nHover";
+            root.background: green;
+        }
+        inactive when !active: {
+            label.text: "Inactive";
+            root.background: gray;
+        }
+    ]
+}

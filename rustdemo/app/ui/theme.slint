@@ -1,0 +1,7 @@
+export global Theme {
+    in-out property<color> primary: blue;
+    in-out property<color> secondary: green;
+
+    // 挂载的回调必须在 rust 或者 cpp 里面定义实现
+    pure callback magic-operation(int) -> int;
+}

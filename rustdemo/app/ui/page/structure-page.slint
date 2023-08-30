@@ -1,0 +1,33 @@
+import { Theme } from "../theme.slint";
+
+export component StructurePage inherits Window {
+    preferred-width: 800px;
+    preferred-height: 600px;
+    
+    // if
+    if area.pressed : foo := Rectangle {
+         background: blue; 
+    }
+    if !area.pressed : Rectangle { background: red; }
+
+    // 触碰区
+    area := TouchArea {}
+
+    // for
+    for my-color[index] in [ #e11, #1a2, #23d, Theme.primary, Theme.secondary ]: Rectangle {
+        width: area2.pressed ? 160px : 60px;
+        height: area2.pressed ? 200px : 100px;
+        // x: self.width * index;
+        x: 60px * index;
+        background: area2.pressed ? black : my-color;
+
+        area2 := TouchArea {}
+        animate background {
+            duration: 250ms;
+        }
+
+        animate width, height { 
+            duration: 400ms;
+         }
+    }
+}
