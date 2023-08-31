@@ -1,0 +1,43 @@
+// 内建回调 init
+// 官网提示不要使用此回调初始化属性。
+// 而是通过调用原生回调。
+
+component MyButton inherits Rectangle {
+    in-out property <string> text: "Initial";
+    init => {
+        // If `text` is queried here, it will have the value "Hello".
+        debug("1");
+    }
+}
+
+component MyCheckBox inherits Rectangle {
+    init => { debug("2"); }
+}
+
+export component MyWindow inherits Window {
+    width: 100px;
+    height: 100px;
+    background: @radial-gradient(circle, black, white, black, white);
+    Rectangle {
+        opacity: 0.5;
+        background: red;
+        border-color: #822;
+        border-width: 5px;
+        width: 50px; height: 50px;
+        x: 10px; y: 10px;
+        Rectangle {
+            background: green;
+            border-color: #050;
+            border-width: 5px;
+            width: 50px; height: 50px;
+            x: 25px; y: 25px;
+        }
+    }
+    
+    MyButton {
+        text: "Hello";
+        init => { debug("3"); }
+    }
+    MyCheckBox {
+    }
+}

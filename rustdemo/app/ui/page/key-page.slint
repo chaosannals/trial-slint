@@ -1,0 +1,18 @@
+export component Example inherits Window {
+    width: 100px;
+    height: 100px;
+    forward-focus: my-key-handler;
+    
+    my-key-handler := FocusScope {
+        key-pressed(event) => {
+            debug(event.text);
+            if (event.modifiers.control) {
+                debug("control was pressed during this event");
+            }
+            if (event.text == Key.Escape) {
+                debug("Esc key was pressed")
+            }
+            accept
+        }
+    }
+}

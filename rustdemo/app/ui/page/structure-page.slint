@@ -17,8 +17,7 @@ export component StructurePage inherits Window {
     for my-color[index] in [ #e11, #1a2, #23d, Theme.primary, Theme.secondary ]: Rectangle {
         width: area2.pressed ? 160px : 60px;
         height: area2.pressed ? 200px : 100px;
-        // x: self.width * index;
-        x: 60px * index;
+        x: 60px * index + (60px - self.width) / 2;
         background: area2.pressed ? black : my-color;
 
         area2 := TouchArea {}

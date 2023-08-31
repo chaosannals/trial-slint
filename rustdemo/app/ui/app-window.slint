@@ -11,6 +11,7 @@ export component AppWindow inherits Window {
     in-out property<int> counter: 42;
 
     callback request-increase-value();
+    pure callback  load-image() -> image;
 
     VerticalBox {
         Text {
@@ -20,6 +21,20 @@ export component AppWindow inherits Window {
             text: "Increase value";
             clicked => {
                 root.request-increase-value();
+            }
+        }
+        VerticalLayout {
+            Image {
+                // 编译目标是PC或单片机的无法直接预览 http 的链接 url
+                // 只有 web 可以直接使用 HTTP 的 url
+                // source: @image-url("https://picsum.photos/id/1/400/400.jpg");
+                source: load-image();
+                // image-fit default is `contain` when in layout, preserving aspect ratio
+            }
+            Image {
+                // source: @image-url("https://picsum.photos/id/2/400/400.jpg");
+                source: load-image();
+                colorize: #44444444; // 对非透明部分完全颜色替换
             }
         }
     }
