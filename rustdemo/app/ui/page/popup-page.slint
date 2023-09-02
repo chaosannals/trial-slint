@@ -1,0 +1,18 @@
+export component PopupPage inherits Window {
+    width: 100px;
+    height: 100px;
+
+    // 不会超出主窗体（会被截取）
+    popup := PopupWindow {
+        Rectangle { height:100%; width: 100%; background: yellow; }
+        x: 20px;
+        y: 20px;
+        height: 100px;
+        width: 100px;
+    }
+
+    TouchArea {
+        height:100%; width: 100%;
+        clicked => { popup.show(); }
+    }
+}

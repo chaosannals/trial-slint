@@ -1,0 +1,35 @@
+export component Path1 inherits Path {
+    width: 100px;
+    height: 100px;
+    commands: "M 0 0 L 0 100 A 1 1 0 0 0 100 100 L 100 0 Z";
+    stroke: red;
+    stroke-width: 1px;
+}
+
+export component Path2 inherits Path {
+    width: 100px;
+    height: 100px;
+    stroke: blue;
+    stroke-width: 1px;
+
+    MoveTo {
+        x: 0;
+        y: 0;
+    }
+    LineTo {
+        x: 0;
+        y: 100;
+    }
+    ArcTo {
+        radius-x: 1;
+        radius-y: 1;
+        x: 100;
+        y: 100;
+    }
+    LineTo {
+        x: 100;
+        y: 0;
+    }
+    Close {
+    }
+}
