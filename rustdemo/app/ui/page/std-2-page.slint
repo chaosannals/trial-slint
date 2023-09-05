@@ -1,0 +1,104 @@
+import {
+    StandardListView,
+    StandardTableView,
+    Switch,
+    TabWidget,
+    TextEdit,
+    VerticalBox,
+    Slider
+} from "std-widgets.slint";
+
+export component Std2Page inherits Window {
+    min-width: 800px;
+    min-height: 600px;
+
+    VerticalLayout {
+        width: parent.width;
+
+        VerticalBox {
+            slider := Slider {
+                maximum: 100;
+            }
+            Text {
+                text: "Value: \{round(slider.value)}";
+            }
+        }
+
+        TextEdit {
+            font-size: 14px;
+            width: parent.width;
+            height: 200px;
+            text: "Lorem ipsum dolor sit amet,\n consectetur adipisici elit";
+        }
+
+        TabWidget {
+            Tab {
+                title: "First";
+                Rectangle { background: orange; }
+            }
+            Tab {
+                title: "Second";
+                Rectangle { background: pink; }
+            }
+        }
+
+        StandardListView {
+            width: parent.width;
+            height: 150px;
+            model: [ { text: "Blue"}, { text: "Red" }, { text: "Green" },
+                { text: "Yellow" }, { text: "Black"}, { text: "White"},
+                { text: "Magenta" }, { text: "Cyan" },
+            ];
+        }
+
+        StandardTableView {
+            width: parent.width;
+            height: 200px;
+            columns: [
+                { title: "Header 1" },
+                { title: "Header 2" },
+            ];
+            rows: [
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ],
+                [
+                    { text: "Item 1" }, { text: "Item 2" },
+                ]
+            ];
+        }
+
+        Switch {
+            width: parent.width;
+            height: 100px;
+            text: "Hello World";
+        }
+    }
+}
